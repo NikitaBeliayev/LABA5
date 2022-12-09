@@ -1,0 +1,72 @@
+﻿<Window x:Class="LABA5.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LABA5"
+        mc:Ignorable="d"
+        Title="MainWindow" MinHeight="800" MinWidth="1200" MaxHeight="800" MaxWidth="1200">
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column ="1">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <DataGrid Grid.Row="0" Name="table" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" CanUserResizeRows="false">
+                <DataGrid.Columns>
+                    <DataGridTextColumn  Header="x1" Width="*" IsReadOnly="True" Binding="{Binding x1}">
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="x2" Width="*" IsReadOnly="True" Binding="{Binding x2}">
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="y1" Width="*" IsReadOnly="True" Binding="{Binding y1}">
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="y2" Width="*" IsReadOnly="True" Binding="{Binding y2}">
+                    </DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Canvas Grid.Row="0" Grid.Column="0">
+                    <TextBlock Name="x1_word" Visibility="Hidden" VerticalAlignment="Center" HorizontalAlignment="Center" Canvas.Top="15" Height="40" Width="40" FontSize="20" Text="X1:" TextAlignment="Center" ></TextBlock>
+                    <TextBox Visibility="Hidden" TextAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Name="text_block_x1" Height="30" Width="80" Canvas.Top="15" Canvas.Right="40"></TextBox>
+                </Canvas>
+                <Canvas Grid.Row="0" Grid.Column="1">
+                    <TextBlock Name="x2_word" Visibility="Hidden"   Canvas.Top="15" Height="40" Width="40" FontSize="20" Text="X2:" TextAlignment="Center" ></TextBlock>
+                    <TextBox Visibility="Hidden"  TextAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Name="text_block_x2" Height="30" Width="80" Canvas.Top="15" Canvas.Right="40"></TextBox>
+                </Canvas>
+                <Canvas Grid.Row="1" Grid.Column="0">
+                    <TextBlock Name="y1_word" Visibility="Hidden"  Canvas.Top="15" Height="40" Width="40" FontSize="20" Text="Y1:" TextAlignment="Center" ></TextBlock>
+                    <TextBox  Visibility="Hidden"  TextAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Name="text_block_y1" Height="30" Width="80" Canvas.Top="15" Canvas.Right="40"></TextBox>
+                </Canvas>
+                <Canvas Grid.Row="1" Grid.Column="1">
+                    <TextBlock Name="y2_word" Visibility="Hidden" Canvas.Top="15" Height="40" Width="40" FontSize="20" Text="Y2:" TextAlignment="Center" ></TextBlock>
+                    <TextBox  Visibility="Hidden" TextAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Name="text_block_y2" Height="30" Width="80" Canvas.Top="15" Canvas.Right="40"></TextBox>
+                </Canvas>
+                <Button IsEnabled="false" Click="add_line_btn_Click" Name="add_line_btn" Grid.Row="2" Grid.ColumnSpan="2" Height="25" Content="Add Line" FontSize="15"></Button>
+                <Button IsEnabled="false" Click="show_Click"  Name="show_btn" Grid.Row="3" Grid.ColumnSpan="2"  Height="25" Content="Set and show cut-off window" FontSize="15"></Button>
+                <Button IsEnabled="false" Click="cut_Click" Name="cut_btn" Grid.Row="4" Grid.ColumnSpan="2"  Height="25" Content="Cut" FontSize="15"></Button>
+                <Button IsEnabled="false" Click="remove_Click"  Name="remove_btn" Grid.Row="5" Grid.ColumnSpan="2"  Height="25" Content="Remove all" FontSize="15"></Button>
+                <RadioButton Name="line_radio_btn" Checked="line_radio_btn_Checked" Grid.Row="6" Grid.Column="0" VerticalAlignment="Center" Content="Line Clipping" Height="50" Width="150" FontSize="20"></RadioButton>
+                <RadioButton Name="polygon_radio_btn" Checked="polygon_radio_btn_Checked" Grid.Row="6" Grid.Column="1" VerticalAlignment="Center" Content="Polygon Clipping" Height="50" Width="180" FontSize="20"></RadioButton>
+            </Grid>
+        </Grid>
+        <WpfPlot Grid.Column="0" Name="Plot"/>
+    </Grid>
+</Window>
